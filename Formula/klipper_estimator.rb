@@ -43,9 +43,12 @@ class KlipperEstimator < Formula
       ]
     }')
 
-    assert_match "Sequences",
-      shell_output("#{bin}/klipper_estimator --config_file
-                   #{testpath/"test_config.json"} estimate
-                   #{testpath/"test.gcode"}")
+    test_command = <<~END
+      #{bin}/klipper_estimator --config_file \
+      #{testpath/"test_config.json"} estimate \
+      #{testpath/"test.gcode"}
+    END
+
+    assert_includes shell_output(test_command), "Sequences"
   end
 end
