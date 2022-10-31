@@ -5,6 +5,12 @@ class KlipperEstimator < Formula
   sha256 "771c5a6538d2dd7a0be51a5d113e7eafd83abd594332877dfbd16c0164b30c03"
   license "MIT"
 
+  bottle do
+    root_url "https://ghcr.io/v2/rufo/klipper_estimator"
+    sha256 cellar: :any_skip_relocation, monterey:     "9b86d84cf6ffda50b9c77d71c89c97392bb8e4a5d848f819743ab412610517fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "590336ba55e824d56bf854f8cc4ae242e9770aff0f685b10f73b7ebc04ce55a4"
+  end
+
   depends_on "rust" => :build
 
   def install
